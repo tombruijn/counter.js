@@ -41,7 +41,7 @@ $("#counter").counter({
 ## Installation
 
 If you're just interested in just using the script then copy the
-`js/counter.js` file in your project.
+`js/counter.min.js` file in your project.
 Then add the libraries as described in `Requirements` below.
 
 ## Requirements
@@ -52,9 +52,10 @@ and the jQuery easing plugin (v1.3).
 Make sure to add these files to your project in this order:
 
 ```javascript
-jquery.js // => Download from: http://jquery.com
-jquery.easing.js // => Download from: http://gsgd.co.uk/sandbox/jquery/easing/
-counter.js // => Is located in this repository under `js/counter.js`
+jquery.js        // Download from: http://jquery.com
+jquery.easing.js // Download from: http://gsgd.co.uk/sandbox/jquery/easing/
+counter.js       // Is located in this repository under `js/counter.js`
+                 // minified version is also available
 ```
 
 _(I don't recommend you using the `js/jquery.js` and `js/jquery.easing.js` files
@@ -68,8 +69,9 @@ Want to help make this better? Or just modify it? Here's how:
 
 ### Requirements
 
-For development you will need a CoffeeScript compiler.
+For development you will need a CoffeeScript compiler and JavaScript minifier.
 I use the one in [Node.js](http://nodejs.org).
+For minification I use [UglifyJS2](https://github.com/mishoo/UglifyJS2).
 
 ### Compilation
 
