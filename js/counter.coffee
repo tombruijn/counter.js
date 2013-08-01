@@ -33,7 +33,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ###
 
-(($, window, document) ->
+(($) ->
   pluginName = "counter"
   # Available options
   defaults =
@@ -104,4 +104,4 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       else
         $(@).data("plugin_#{pluginName}", new Counter(@, options))
 
-)(jQuery, window, document)
+)(jQuery)
