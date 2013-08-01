@@ -14,8 +14,22 @@
         margin: 0;
         padding: 0;
         font-family: Verdana, Arial, sans-serif;
-        font-size: 12px;
-        background: #EEE;
+        font-size: 14px;
+        background: #eaeef2;
+      }
+      a {
+        color: #6390C0;
+      }
+      a:hover {
+        color: #82A3C6;
+        text-decoration: none;
+      }
+      .center {
+        text-align: center;
+      }
+      .less {
+        color: #777;
+        font-style: italic;
       }
       .header {
         margin-top: 50px;
@@ -24,9 +38,10 @@
       }
       .container {
         margin: 20px auto 0 auto;
-        padding: 100px;
+        padding: 100px 100px 60px 100px;
         width: 500px;
         background: #FFF;
+        border-radius: 4px;
       }
       #counter {
         display: block;
@@ -35,15 +50,21 @@
       }
       button {
         display: block;
-        margin: 50px auto 0 auto;
+        margin: 60px auto 20px auto;
         padding: 10px 20px;
         font-size: 24px;
-        background: #CCC;
+        color: #FFF;
+        background: #588ec4;
         border: 0;
         cursor: pointer;
+        border-radius: 4px;
+      }
+      button:hover {
+        background: #7aa2c9;
       }
       .footer {
         margin-top: 20px;
+        color: #555;
         text-align: center;
       }
     </style>
@@ -57,12 +78,16 @@
       <div id="counter">1024</div>
 
       <button>Start counting!</button>
+      <div class="less center">Only runs once.</div>
     </div>
     <div class="footer">View the project on <a href="https://github.com/tombruijn/counter.js">GitHub</a>.</div>
 
     <script type="text/javascript">
       var counters = $("#counter")
-      counters.counter({autoStart: false});
+      counters.counter({
+        autoStart: false,
+        duration: 10000
+      });
 
       $(document).on("click", "button", function(){
         counters.counter("start");
