@@ -50,7 +50,7 @@
       .container {
         margin: 20px auto 0 auto;
         padding: 20px 20px 20px 20px;
-        width: 500px;
+        width: 550px;
         background: #FFF;
         border-radius: 4px;
       }
@@ -60,8 +60,11 @@
         font-size: 100px;
         text-align: center;
       }
-      button {
-        display: block;
+      .buttons {
+        text-align: center;
+      }
+      .buttons a, button {
+        display: inline-block;
         margin: 20px auto 20px auto;
         padding: 10px 20px;
         font-size: 24px;
@@ -71,8 +74,15 @@
         cursor: pointer;
         border-radius: 4px;
       }
-      button:hover {
+      .buttons a:hover, button:hover {
         background: #7aa2c9;
+      }
+      .buttons a {
+        margin-left: 20px;
+        text-decoration: none;
+      }
+      .buttons a:hover {
+        text-decoration: underline;
       }
       #trigger {
         margin: 60px auto 20px auto;
@@ -95,7 +105,10 @@
     <div class="container">
       <div id="counter">1024</div>
 
-      <button id="trigger">Start counting!</button>
+      <div class="buttons">
+        <button id="trigger">Start counting!</button>
+        <a href="https://github.com/tombruijn/counter.js">View on GitHub</a>
+      </div>
     </div>
 
     <div class="container">
