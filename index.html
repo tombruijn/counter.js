@@ -70,7 +70,7 @@
     <div class="container">
       <div id="counter">1024</div>
 
-      <button>Start counting!</button>
+      <button id="trigger">Start counting!</button>
     </div>
     <div class="footer">View the project on <a href="https://github.com/tombruijn/counter.js">GitHub</a>.</div>
 
@@ -78,7 +78,13 @@
       var counters = $("#counter")
       counters.counter({
         autoStart: false,
-        duration: 7000
+        duration: 7000,
+        onStart: function() {
+          document.getElementById("trigger").innerHTML = "Running.."
+        },
+        onComplete: function() {
+          document.getElementById("trigger").innerHTML = "Restart counting!"
+        }
       });
 
       $(document).on("click", "button", function(){

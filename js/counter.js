@@ -44,7 +44,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       duration: 1500,
       startAt: 0,
       placeholder: 0,
-      easing: "easeOutQuad"
+      easing: "easeOutQuad",
+      onStart: function() {},
+      onComplete: function() {}
     };
     Counter = (function() {
 
@@ -68,6 +70,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       var self;
       if (!this.running) {
         this.running = true;
+        this.options.onStart();
         self = this;
         return jQuery({
           count: this.options.startAt
@@ -80,7 +83,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             return self.setNumber(this.count);
           },
           complete: function() {
-            return self.running = false;
+            self.running = false;
+            return self.options.onComplete();
           }
         });
       }

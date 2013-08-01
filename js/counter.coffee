@@ -42,6 +42,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     startAt: 0
     placeholder: 0
     easing: "easeOutQuad"
+    onStart: ->
+    onComplete: ->
 
   class Counter
     constructor: (@element, options) ->
@@ -64,6 +66,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   Counter::start = ->
     unless @running
       @running = true
+      @options.onStart()
       self = @
       jQuery(count: @options.startAt).animate(count: @maxNumber,
         duration: @options.duration
@@ -74,6 +77,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         complete: ->
           # Allow the counter to run again
           self.running = false
+          self.options.onComplete()
       )
 
   # Sets the given number in the element

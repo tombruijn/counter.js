@@ -26,13 +26,15 @@ __With some more options:__
 ```javascript
 // JavaScript
 $("#counter").counter({
-  autoStart: false, // true/false, default: true
-  duration: 1000,   // milliseconds, default: 1500
-  startAt: 1,       // start counting at this number, default: 0
-  placeholder: "?", // replace the number with this before counting,
-                    // most useful with autoStart: false. default: 0
-  easing: "swing"   // see http://gsgd.co.uk/sandbox/jquery/easing/ for all
-                    // available effects, default: "easeOutQuad"
+  autoStart: false,         // true/false, default: true
+  duration: 1000,           // milliseconds, default: 1500
+  startAt: 1,               // start counting at this number, default: 0
+  placeholder: "?",         // replace the number with this before counting,
+                            // most useful with autoStart: false. default: 0
+  easing: "swing",          // see http://gsgd.co.uk/sandbox/jquery/easing
+                            // for all available effects, default: "easeOutQuad"
+  onStart: function() {},   // callback on start of the counting
+  onComplete: function() {} // callback on completion of the counting
 });
 ```
 
@@ -44,7 +46,7 @@ Then add the libraries as described in `Requirements` below.
 
 ## Requirements
 
-You will need two libraries, jQuery (should work with v2, v1.10+ and v1.9)
+You will need two libraries, jQuery (should work with v2, v1.10 and v1.9)
 and the jQuery easing plugin (v1.3).
 
 Make sure to add these files to your project in this order:
