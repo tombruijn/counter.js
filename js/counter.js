@@ -64,12 +64,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         return this.start();
       }
     };
-    Counter.prototype.start = function(delay) {
+    Counter.prototype.start = function() {
       var self;
       if (!this.running) {
-        if (!delay) {
-          delay = 0;
-        }
         this.running = true;
         self = this;
         return jQuery({
@@ -81,6 +78,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           easing: this.options.easing,
           step: function() {
             return self.setNumber(this.count);
+          },
+          complete: function() {
+            return self.running = false;
           }
         });
       }

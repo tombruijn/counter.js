@@ -48,7 +48,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       @options = $.extend true, {}, defaults, options
       @init()
 
-  # Calculates internal variables
+  # Sets internal variables and sets placeholder
   Counter::init = ->
     # Save the maxNumber for reference
     @maxNumber = parseInt(@element.innerHTML)
@@ -60,17 +60,20 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     @start() if @options.autoStart
 
   # Starts the counter
-  # Only call once. It will ignore anything after the first call
-  Counter::start = (delay) ->
+  # Will ignore any calls to it if it is already running.
+  Counter::start = ->
     unless @running
-      delay = 0 unless delay
       @running = true
       self = @
       jQuery(count: @options.startAt).animate(count: @maxNumber,
         duration: @options.duration
         easing: @options.easing
         step: ->
+          # Set the value to the DOM
           self.setNumber(this.count)
+        complete: ->
+          # Allow the counter to run again
+          self.running = false
       )
 
   # Sets the given number in the element

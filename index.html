@@ -24,13 +24,6 @@
         color: #82A3C6;
         text-decoration: none;
       }
-      .center {
-        text-align: center;
-      }
-      .less {
-        color: #777;
-        font-style: italic;
-      }
       .header {
         margin-top: 50px;
         font-size: 60px;
@@ -78,7 +71,6 @@
       <div id="counter">1024</div>
 
       <button>Start counting!</button>
-      <div class="less center">Only runs once.</div>
     </div>
     <div class="footer">View the project on <a href="https://github.com/tombruijn/counter.js">GitHub</a>.</div>
 
@@ -86,7 +78,7 @@
       var counters = $("#counter")
       counters.counter({
         autoStart: false,
-        duration: 10000
+        duration: 7000
       });
 
       $(document).on("click", "button", function(){
