@@ -9,7 +9,7 @@ The index.html file contains a working example of the counter.
 
 ## Usage
 
-Simplest implementation:
+__Simplest implementation:__
 
 ```html
 <!-- HTML -->
@@ -17,25 +17,48 @@ Simplest implementation:
 ```
 
 ```javascript
+// JavaScript
 $("#counter").counter();
 ```
 
-With options:
+__With some more options:__
 
 ```javascript
 // JavaScript
 $("#counter").counter({
   autoStart: false, // true/false, default: true
-  duration: 1000, // milliseconds, default: 1500
-  startAt: 1, // start counting at this number, default: 0
-  placeholder: "?", // replace the number with this before counting, most useful with autoStart: false
-  easing: "swing" // see http://gsgd.co.uk/sandbox/jquery/easing/ for all available effects
+  duration: 1000,   // milliseconds, default: 1500
+  startAt: 1,       // start counting at this number, default: 0
+  placeholder: "?", // replace the number with this before counting,
+                    // most useful with autoStart: false. default: 0
+  easing: "swing"   // see http://gsgd.co.uk/sandbox/jquery/easing/ for all
+                    // available effects, default: "easeOutQuad"
 });
 ```
 
 ## Installation
 
-If you're just interested in using the script copy the `js/counter.js` file in your project. I don't recommend using the `js/jquery.js` and `js/jquery.easing.js` files that are available in this repository in your project. Instead download the latest ones from [jquery.com](http://jquery.com/) and [gsgd.co.uk (jQuery.easing)](http://gsgd.co.uk/sandbox/jquery/easing/)
+If you're just interested in just using the script then copy the
+`js/counter.js` file in your project.
+Then add the libraries as described in `Requirements` below.
+
+## Requirements
+
+You will need two libraries, jQuery (should work with v2, v1.10+ and v1.9)
+and the jQuery easing plugin (v1.3).
+
+Make sure to add these files to your project in this order:
+
+```javascript
+jquery.js // => Download from: http://jquery.com
+jquery.easing.js // => Download from: http://gsgd.co.uk/sandbox/jquery/easing/
+counter.js // => Is located in this repository under `js/counter.js`
+```
+
+_(I don't recommend you using the `js/jquery.js` and `js/jquery.easing.js` files
+that are available in this repository in your project.
+Instead download the latest ones from [jquery.com](http://jquery.com/) and
+[gsgd.co.uk (jQuery.easing)](http://gsgd.co.uk/sandbox/jquery/easing/).)_
 
 ## Contributing
 
@@ -63,7 +86,7 @@ __Compilation on save:__
 
 ### Testing
 
-This project needs test coverage. ;)
+This project needs test coverage and I haven't gotten around to it yet. ;)
 
 ## License
 
