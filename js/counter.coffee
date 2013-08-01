@@ -51,15 +51,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   # Calculates internal variables
   Counter::init = ->
     # Save the maxNumber for reference
-    setTimeout(=>
-      @maxNumber = parseInt(@element.innerHTML)
+    @maxNumber = parseInt(@element.innerHTML)
 
-      # Replace maxNumber with the given placeholder
-      @element.innerHTML = @options.placeholder
+    # Replace maxNumber with the given placeholder
+    @element.innerHTML = @options.placeholder
 
-      # Start the counter if autoStart is on
-      @start() if @options.autoStart
-    , 300)
+    # Start the counter if autoStart is on
+    @start() if @options.autoStart
 
   # Starts the counter
   # Only call once. It will ignore anything after the first call

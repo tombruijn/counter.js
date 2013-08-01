@@ -58,14 +58,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     })();
     Counter.prototype.init = function() {
-      var _this = this;
-      return setTimeout(function() {
-        _this.maxNumber = parseInt(_this.element.innerHTML);
-        _this.element.innerHTML = _this.options.placeholder;
-        if (_this.options.autoStart) {
-          return _this.start();
-        }
-      }, 300);
+      this.maxNumber = parseInt(this.element.innerHTML);
+      this.element.innerHTML = this.options.placeholder;
+      if (this.options.autoStart) {
+        return this.start();
+      }
     };
     Counter.prototype.start = function(delay) {
       var self;
