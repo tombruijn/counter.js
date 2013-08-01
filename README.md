@@ -37,7 +37,7 @@ $("#counter").counter({
   startAt: 1,               // start counting at this number, default: 0
   placeholder: "?",         // replace the number with this before counting,
                             // most useful with autoStart: false. default: 0
-  easing: "swing",          // see http://gsgd.co.uk/sandbox/jquery/easing
+  easing: "easeOutCubic",   // see http://gsgd.co.uk/sandbox/jquery/easing
                             // for all available effects, see visual examples:
                             // http://easings.net
                             // default: "easeOutQuad"
