@@ -85,6 +85,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             return self.setNumber(this.count);
           },
           complete: function() {
+            self.setNumber(self.maxNumber);
             self.running = false;
             return self.options.onComplete();
           }

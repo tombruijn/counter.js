@@ -62,7 +62,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     @start() if @options.autoStart
 
   # Starts the counter
-  # Will ignore any calls to it if it is already running.
+  # Will ignore any calls if it is already running.
   Counter::start = ->
     unless @running
       @running = true
@@ -75,6 +75,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           # Set the value to the DOM
           self.setNumber(this.count)
         complete: ->
+          # Ensure the end result is always the given number
+          self.setNumber(self.maxNumber)
           # Allow the counter to run again
           self.running = false
           self.options.onComplete()
