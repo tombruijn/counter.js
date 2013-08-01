@@ -32,7 +32,9 @@ $("#counter").counter({
   placeholder: "?",         // replace the number with this before counting,
                             // most useful with autoStart: false. default: 0
   easing: "swing",          // see http://gsgd.co.uk/sandbox/jquery/easing
-                            // for all available effects, default: "easeOutQuad"
+                            // for all available effects, see visual examples:
+                            // http://easings.net
+                            // default: "easeOutQuad"
   onStart: function() {},   // callback on start of the counting
   onComplete: function() {} // callback on completion of the counting
 });
