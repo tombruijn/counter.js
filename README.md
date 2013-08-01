@@ -3,9 +3,15 @@
 A _simple_ number counter in JavaScript as a jQuery plugin.
 It counts the number set on an element using an easing effect.
 
+You can configure certain options such as a duration, easing effect, auto start,
+start at count, placeholder (for use with auto start) and it supports callbacks.
+
 ## Example
 
 The index.html file contains a working example of the counter.
+
+It's also live at
+[tombruijn.github.io/counter.js](http://tombruijn.github.io/counter.js).
 
 ## Usage
 
