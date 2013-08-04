@@ -39,8 +39,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   defaults =
     autoStart: true
     duration: 1500
-    startAt: 0
-    placeholder: 0
+    # If the given element contains a value larger than countTo it set on
+    # countFrom
+    countFrom: undefined # Defaults to 0 if not set
+    # If the given element contains a value larger than countFrom it set on
+    # countTo
+    countTo: undefined # Defaults to 0 if not set
+    placeholder: undefined
     easing: "easeOutQuad"
     onStart: ->
     onComplete: ->
@@ -50,25 +55,37 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       @options = $.extend true, {}, defaults, options
       @init()
 
-  # Sets internal variables and sets placeholder
+  # Sets internal variables and sets placeholder.
   Counter::init = ->
-    # Save the maxNumber for reference
-    @maxNumber = parseInt(@element.innerHTML)
+    givenNumber = parseInt(@element.innerHTML)
 
-    # Replace maxNumber with the given placeholder
-    @element.innerHTML = @options.placeholder
+    # Use number set in the HTML
+    if givenNumber? && !isNaN(givenNumber)
+      if @options.countFrom < givenNumber
+        # Count up
+        @options.countTo = givenNumber
+      else
+        # Count down
+        @options.countFrom = givenNumber
+
+    # Default values
+    @options.countFrom = 0 if @options.countFrom == undefined
+    @options.countTo = 0 if @options.countTo == undefined
+
+    # Replace countTo with the given placeholder
+    @element.innerHTML = @options.placeholder if @options.placeholder?
 
     # Start the counter if autoStart is on
     @start() if @options.autoStart
 
-  # Starts the counter
+  # Starts the counter.
   # Will ignore any calls if it is already running.
   Counter::start = ->
     unless @running
       @running = true
       @options.onStart()
       self = @
-      jQuery(count: @options.startAt).animate(count: @maxNumber,
+      jQuery(count: @options.countFrom).animate(count: @options.countTo,
         duration: @options.duration
         easing: @options.easing
         step: ->
@@ -76,7 +93,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           self.setNumber(this.count)
         complete: ->
           # Ensure the end result is always the given number
-          self.setNumber(self.maxNumber)
+          self.setNumber(self.options.countTo)
           # Allow the counter to run again
           self.running = false
           self.options.onComplete()

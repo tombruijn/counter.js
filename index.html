@@ -54,11 +54,16 @@
         background: #FFF;
         border-radius: 4px;
       }
-      #counter {
+      #counter-up,
+      #counter-down {
         display: block;
         margin-top: 80px;
         font-size: 100px;
         text-align: center;
+      }
+      #counter-down {
+        margin-top: 20px;
+        font-size: 40px;
       }
       .buttons {
         text-align: center;
@@ -103,7 +108,8 @@
   <body>
     <div class="header"><h1>Counter.js</h1></div>
     <div class="container">
-      <div id="counter">1024</div>
+      <div id="counter-up">0</div>
+      <div id="counter-down">1024</div>
 
       <div class="buttons">
         <button id="trigger">Start counting!</button>
@@ -112,16 +118,18 @@
     </div>
 
     <div class="container">
-      <h2>Configuration</h2>
+      <h2>Configuration example</h2>
       <script src="https://gist.github.com/tombruijn/6134393.js"></script>
     </div>
     <div class="footer">View the project on <a href="https://github.com/tombruijn/counter.js">GitHub</a>.</div>
 
     <script type="text/javascript">
-      var counters = $("#counter")
-      counters.counter({
+      var counterUp = $("#counter-up");
+      counterUp.counter({
         autoStart: false,
         duration: 7000,
+        countTo: 1024,
+        placeholder: 0,
         easing: "easeOutCubic",
         onStart: function() {
           document.getElementById("trigger").innerHTML = "Running.."
@@ -130,9 +138,17 @@
           document.getElementById("trigger").innerHTML = "Restart counting!"
         }
       });
+      var counterDown = $("#counter-down");
+      counterDown.counter({
+        autoStart: false,
+        countTo: 0,
+        duration: 7000,
+        easing: "easeOutCubic"
+      });
 
       $(document).on("click", "button", function(){
-        counters.counter("start");
+        counterUp.counter("start");
+        counterDown.counter("start");
       });
     </script>
   </body>
