@@ -60,8 +60,8 @@ Then add the libraries as described in `Requirements` below.
 
 ## Requirements
 
-You will need two libraries, jQuery (should work with v2, v1.10 and v1.9)
-and the jQuery easing plugin (v1.3).
+You will need two libraries, jQuery (works with v2 and up, v1.64 and up
+(I use as little jQuery as possible)) and the jQuery easing plugin (v1.3).
 
 Make sure to add these files to your project in this order:
 
