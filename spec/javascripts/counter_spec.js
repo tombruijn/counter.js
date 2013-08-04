@@ -81,6 +81,55 @@ describe("Counter.js", function() {
     });
   });
 
+  describe("start()", function(){
+    var onStartSpy;
+    var onCompleteSpy;
+
+    beforeEach(function() {
+      onStartSpy = jasmine.createSpy("startCallback");
+      onCompleteSpy = jasmine.createSpy("completeCallback");
+      element = $("<div>0</div>");
+      counter = element.counter({
+        autoStart: false,
+        duration: 1000,
+        countFrom: 0,
+        countTo: 1000,
+        onStart: onStartSpy,
+        onComplete: onCompleteSpy,
+      }).data("plugin_counter");
+      jQuery.fx.off = true;
+    });
+
+    it("should increment the element's value", function(){
+      expect(element[0].innerHTML).toBe("0");
+      counter.start();
+      expect(element[0].innerHTML).toBe("1000");
+    });
+
+    it("should prevent calls when already running", function(){
+      jQuery.fx.off = false;
+      expect(onStartSpy).not.toHaveBeenCalled();
+      expect(onCompleteSpy).not.toHaveBeenCalled();
+      expect(counter.running).toBeUndefined();
+
+      counter.start();
+      expect(counter.running).toBe(true);
+      counter.start();
+      counter.start();
+
+      expect(onStartSpy.callCount).toEqual(1);
+      expect(onCompleteSpy.callCount).toEqual(0);
+    });
+
+    it("should trigger callbacks", function(){
+      expect(onStartSpy).not.toHaveBeenCalled();
+      expect(onCompleteSpy).not.toHaveBeenCalled();
+      counter.start();
+      expect(onStartSpy).toHaveBeenCalled();
+      expect(onCompleteSpy).toHaveBeenCalled();
+    });
+  });
+
   describe("setNumber()", function(){
     it("should modify the element's innerHTML", function(){
       counter.setNumber(1);
