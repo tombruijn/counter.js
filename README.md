@@ -1,7 +1,7 @@
 # Counter.js
 
 A _simple_ number counter in JavaScript as a jQuery plugin.
-It counts the number set on an element using an easing effect.
+It counts to or down to the number set on an element using an easing effect.
 
 You can configure certain options such as a duration, easing effect, auto start,
 start at count, placeholder (for use with auto start) and it supports callbacks.
@@ -33,10 +33,11 @@ __With some more options:__
 // JavaScript
 $("#counter").counter({
   autoStart: false,         // true/false, default: true
-  duration: 1000,           // milliseconds, default: 1500
-  startAt: 1,               // start counting at this number, default: 0
+  duration: 5000,           // milliseconds, default: 1500
+  countFrom: 10,            // start counting at this number, default: 0
+  countTo: 30,              // count to this number, default: 0
   placeholder: "?",         // replace the number with this before counting,
-                            // most useful with autoStart: false. default: 0
+                            // most useful with autoStart: false. default: undefined
   easing: "easeOutCubic",   // see http://gsgd.co.uk/sandbox/jquery/easing
                             // for all available effects, see visual examples:
                             // http://easings.net
@@ -45,6 +46,11 @@ $("#counter").counter({
   onComplete: function() {} // callback on completion of the counting
 });
 ```
+
+Counter.js supports counting up and counting down.
+If either countFrom or countTo is not set it will try to determine which value
+you meant by its set value on the element and the countFrom and countTo options.
+You can also not set a value on the element and use both options.
 
 ## Installation
 
@@ -63,7 +69,7 @@ Make sure to add these files to your project in this order:
 jquery.js        // Download from: http://jquery.com
 jquery.easing.js // Download from: http://gsgd.co.uk/sandbox/jquery/easing/
 counter.js       // Is located in this repository under `js/counter.js`
-                 // minified version is also available
+                 // A minified version is also available.
 ```
 
 _(I don't recommend you using the `js/jquery.js` and `js/jquery.easing.js` files
@@ -73,7 +79,10 @@ Instead download the latest ones from [jquery.com](http://jquery.com/) and
 
 ## Contributing
 
-Want to help make this better? Or just modify it? Here's how:
+Want to help make this better? Or just modify it?
+Fork the project and send in a Pull Request.
+
+Do you need help to start the development? Here's how:
 
 ### Requirements
 
@@ -83,14 +92,18 @@ For minification I use [UglifyJS2](https://github.com/mishoo/UglifyJS2).
 
 ### Compilation
 
-Once you modified the CoffeeScript you will need to compile it to JavaScript.
+Once you modified the CoffeeScript you will need to compile it to JavaScript
+if you want to run it (do not commit it!).
 There's a `Makefile` available in the repo to do so.
+
+_You do not need to commit the compiled JavaScript or minify it, that will be
+done with every new release._
 
 If you like entering commands in the terminal more, use one of these commands:
 
-__One time compilation:__
+__One time compilation and minification:__
 
-`coffee --output js/ --compile js/counter.coffee`
+_See the commands in the bundled Makefile._
 
 __Compilation on save:__
 
@@ -102,4 +115,5 @@ This project needs test coverage and I haven't gotten around to it yet. ;)
 
 ## License
 
-Counter.js released under the MIT License. See the bundled LICENSE file for details.
+Counter.js released under the MIT License. See the bundled LICENSE file for
+details.
