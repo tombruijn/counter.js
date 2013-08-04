@@ -13,7 +13,7 @@ describe("Counter.js", function() {
     });
 
     it("should execute start when a string with start is given", function() {
-      expect(counter.running).toBe(undefined);
+      expect(counter.running).toBeUndefined();
       element.counter("start");
       expect(counter.running).toBe(true);
     });
