@@ -113,7 +113,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     return $.fn.counter = function(options) {
       var self;
       self = this;
-      self.elementI = 0;
       return this.each(function() {
         var plugin;
         if (plugin = $(this).data("plugin_" + pluginName)) {
