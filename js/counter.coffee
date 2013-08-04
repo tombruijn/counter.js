@@ -113,7 +113,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   #   starts the counter
   $.fn.counter = (options) ->
     self = @
-    self.elementI = 0
     @each ->
       if plugin = $(@).data("plugin_#{pluginName}")
         if typeof options == "string"
