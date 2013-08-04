@@ -119,6 +119,10 @@ project.
 
 Start the Jasmine server with `rake jasmine`.
 
+## Code status
+
+[![Build Status](https://travis-ci.org/tombruijn/counter.js.png)](https://travis-ci.org/tombruijn/counter.js)
+
 ## License
 
 Counter.js released under the MIT License. See the bundled LICENSE file for
