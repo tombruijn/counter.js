@@ -1,9 +1,12 @@
 ###
 Counter.js
 https://github.com/tombruijn/counter.js
+(c) 2013 Tom de Bruijn
 
 A _simple_ number counter in JavaScript as a jQuery plugin.
-It counts the number set on an element using an easing effect.
+
+Version: 0.0.1
+Updated: 2013-08-04
 
 Counter.js is licensed under the MIT license.
 jQuery is also licensed under the MIT license.
