@@ -121,5 +121,4 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
               plugin.start()
       else
         $(@).data("plugin_#{pluginName}", new Counter(@, options))
-
 )(jQuery)
