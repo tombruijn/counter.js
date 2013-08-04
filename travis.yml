@@ -1,5 +1,0 @@
-language: ruby
-rvm:
-  - 2.0.0
-
-script: bundle exec rake jasmine:ci
