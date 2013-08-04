@@ -111,7 +111,13 @@ __Compilation on save:__
 
 ### Testing
 
-This project needs test coverage and I haven't gotten around to it yet. ;)
+This project is tested with [Jasmine](http://pivotal.github.io/jasmine/).
+
+In the spec directory you can find all the tests for this project.
+It uses the Jasmine Ruby gem so I doesn't have to copy Jasmine into this
+project.
+
+Start the Jasmine server with `rake jasmine`.
 
 ## License
 
