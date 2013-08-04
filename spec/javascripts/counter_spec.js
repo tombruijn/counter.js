@@ -71,6 +71,14 @@ describe("Counter.js", function() {
         expect(options.countTo).toBe(2);
       });
     });
+
+    describe("placeholder", function(){
+      it("should set the placeholder in the HTML", function(){
+        var element = $("<div>1</div>");
+        element.counter({ autoStart: false, countFrom: 0, placeholder: "?" });
+        expect(element[0].innerHTML).toBe("?");
+      });
+    });
   });
 
   describe("setNumber()", function(){
