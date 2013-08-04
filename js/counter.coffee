@@ -1,7 +1,6 @@
 ###
 Counter.js
 https://github.com/tombruijn/counter.js
-(c) 2013 Tom de Bruijn
 
 A _simple_ number counter in JavaScript as a jQuery plugin.
 
