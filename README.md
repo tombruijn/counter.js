@@ -1,6 +1,6 @@
 # Counter.js
 
-A _simple_ number counter in JavaScript as a jQuery plugin.
+A _simple_ and _small_ number counter in JavaScript as a jQuery plugin.
 It counts to or down to the number set on an element using an easing effect.
 
 You can configure certain options such as a duration, easing effect, auto start,
