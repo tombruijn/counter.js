@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-    <title>Counter.js example</title>
+    <title>Counter.js - a simple JavaScript counter</title>
     <style type="text/css">
       * {
         box-sizing: border-box;
@@ -25,7 +25,7 @@
         text-decoration: none;
       }
       hr {
-        margin: 40px 0 40px 0;
+        margin: 20px 0;
         height: 1px;
         color: #CCC;
         background: #CCC;
@@ -52,7 +52,7 @@
         padding: 20px 20px 20px 20px;
         width: 550px;
         background: #FFF;
-        border-radius: 4px;
+        border-radius: 3px;
       }
       #counter-up,
       #counter-down {
@@ -64,33 +64,34 @@
       #counter-down {
         margin-top: 20px;
         font-size: 40px;
+        color: #555;
       }
       .buttons {
+        margin: 60px auto 20px auto;
         text-align: center;
       }
+      .buttons:last-child {
+        margin-top: 20px;
+      }
       .buttons a, button {
+        cursor: pointer;
         display: inline-block;
-        margin: 20px auto 20px auto;
         padding: 10px 20px;
         font-size: 24px;
         color: #FFF;
         background: #588ec4;
         border: 0;
-        cursor: pointer;
-        border-radius: 4px;
+        border-radius: 3px;
       }
       .buttons a:hover, button:hover {
         background: #7aa2c9;
       }
       .buttons a {
-        margin-left: 20px;
+        background: #888;
         text-decoration: none;
       }
       .buttons a:hover {
-        text-decoration: underline;
-      }
-      #trigger {
-        margin: 60px auto 20px auto;
+        background: #AAA;
       }
       .footer {
         margin: 20px 0;
@@ -113,15 +114,36 @@
 
       <div class="buttons">
         <button id="trigger">Start counting!</button>
-        <a href="https://github.com/tombruijn/counter.js">View on GitHub</a>
+      </div>
+      <div class="buttons">
+        <a href="https://github.com/tombruijn/counter.js">Download on GitHub</a>
       </div>
     </div>
 
     <div class="container">
+      <h2>Counter.js</h2>
+
+      <p>
+        Counter.js is a <em>simple</em> and <em>small</em> number counter in
+        JavaScript as a jQuery plugin.
+      </p>
+      <p>
+        Count to or down from the number set on an element using an
+        <a href="http://easings.net" target="_blank">easing</a> effect.
+      </p>
+
+      <hr/>
+
       <h2>Configuration example</h2>
+      <p>
+        The following configuration is an example of Counter.js's options.
+      </p>
       <script src="https://gist.github.com/tombruijn/6134393.js"></script>
     </div>
-    <div class="footer">View the project on <a href="https://github.com/tombruijn/counter.js">GitHub</a>.</div>
+    <div class="footer">
+      View the project on
+      <a href="https://github.com/tombruijn/counter.js">GitHub</a>.
+    </div>
 
     <script type="text/javascript">
       var counterUp = $("#counter-up");
