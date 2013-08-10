@@ -1,6 +1,7 @@
 # Counter.js
 
-A _simple_ and _small_ number counter in JavaScript as a jQuery plugin.
+A _simple_ and _small_ number counter in JavaScript as a
+[jQuery](http://jquery.com) plugin.
 It counts to or down to the number set on an element using an easing effect.
 
 You can configure certain options such as a duration, easing effect, auto start,
@@ -49,8 +50,8 @@ $("#counter").counter({
 
 Counter.js supports counting up and counting down.
 If either countFrom or countTo is not set it will try to determine which value
-you meant by its set value on the element and the countFrom and countTo options.
-You can also not set a value on the element and use both options.
+you meant by its innerHTML of the element and the countFrom and countTo options.
+You can also not set an innerHTML value on the element and use both options.
 
 ## Installation
 
@@ -79,33 +80,38 @@ Instead download the latest ones from [jquery.com](http://jquery.com/) and
 
 ## Contributing
 
-Want to help make this better? Or just modify it?
-Fork the project and send in a Pull Request.
+When you find a bug, please report it in the issue tracker on
+[GitHub](https://github.com/tombruijn/counter.js/issues).
+
+If you're missing a feature, want to help make this project better or just
+want to modify it?
+Fork the project on [GitHub](https://github.com/tombruijn/counter.js)
+(and send in a Pull Request).
 
 Do you need help to start the development? Here's how:
 
 ### Requirements
 
-For development you will need a CoffeeScript compiler and JavaScript minifier.
-I use the one in [Node.js](http://nodejs.org).
+For development you will need at least the CoffeeScript compiler.
+The JavaScript minifier is not required, but it can't hurt to run your specs
+with the minified version as well.
+
+I use the [coffee-script](https://github.com/jashkenas/coffee-script) package in
+[Node.js](http://nodejs.org) for compilation.
+
 For minification I use [UglifyJS2](https://github.com/mishoo/UglifyJS2).
 
 ### Compilation
 
-Once you modified the CoffeeScript you will need to compile it to JavaScript
-if you want to run it (do not commit it!).
-There's a `Makefile` available in the repo to do so.
+Compiled and minified javascript should **not** be committed in pull requests.
+This will be done with every new release instead.
 
-_You do not need to commit the compiled JavaScript or minify it, that will be
-done with every new release._
+Use the bundled `Makefile` to compile and minify the original coffeescript file.
+It's as simple as running `make` inside the project's directory.
+Do make sure that all the required Node.js packages are installed.
 
-If you like entering commands in the terminal more, use one of these commands:
-
-__One time compilation and minification:__
-
-_See the commands in the bundled Makefile._
-
-__Compilation on save:__
+For development purposes I recommend using the watch feature on the
+`coffee-script` package so it will compile on every file change.
 
 `coffee --watch --compile ./js/counter.coffee`
 
@@ -114,10 +120,13 @@ __Compilation on save:__
 This project is tested with [Jasmine](http://pivotal.github.io/jasmine/).
 
 In the spec directory you can find all the tests for this project.
-It uses the Jasmine Ruby gem so I doesn't have to copy Jasmine into this
+The spec suite expects a compiled `counter.js` file to be available in the
+`js` directory, so make sure you have compiled it before testing.
+
+The project uses the Jasmine Ruby gem so I don't have to copy Jasmine into this
 project.
 
-Start the Jasmine server with `rake jasmine`.
+Start the Jasmine server with `rake jasmine` and visit the returned url.
 
 ## Code status
 
