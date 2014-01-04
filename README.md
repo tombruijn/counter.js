@@ -62,7 +62,9 @@ Then add the libraries as described in `Requirements` below.
 ## Requirements
 
 You will need two libraries, jQuery (works with v2 and up, v1.64 and up
-(I use as little jQuery as possible)) and the jQuery easing plugin (v1.3).
+(I use as little jQuery as possible)) and the jQuery easing plugin (v1.3)
+which is optional. You only need jQuery easing when you need a different
+counting effect than swing.
 
 Make sure to add these files to your project in this order:
 
