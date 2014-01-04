@@ -1,0 +1,27 @@
+{
+  "name": "counter.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tombruijn/counter.js",
+  "authors": [
+    "Tom de Bruijn <tom@tomdebruijn.com>"
+  ],
+  "description": "A simple number counter in JavaScript as a jQuery plugin.",
+  "main": "js/counter.js",
+  "keywords": [
+    "count",
+    "countup",
+    "countdown",
+    "counter",
+    "jquery"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">=1.6"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "spec"
+  ]
+}
