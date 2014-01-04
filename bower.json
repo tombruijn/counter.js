@@ -1,6 +1,6 @@
 {
   "name": "counter.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/tombruijn/counter.js",
   "authors": [
     "Tom de Bruijn <tom@tomdebruijn.com>"
@@ -22,6 +22,11 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "spec"
+    "spec",
+    "Gemfile*",
+    "Rakefile",
+    "Makefile",
+    "README.md",
+    "LICENSE"
   ]
 }
