@@ -82,21 +82,21 @@ describe("Counter.js", function() {
   });
 
   describe("start()", function(){
-    var onStartSpy;
-    var onCompleteSpy;
+    var options = null;
 
     beforeEach(function() {
-      onStartSpy = jasmine.createSpy("startCallback");
-      onCompleteSpy = jasmine.createSpy("completeCallback");
       element = $("<div>0</div>");
-      counter = element.counter({
+      options = {
         autoStart: false,
         duration: 1000,
         countFrom: 0,
         countTo: 1000,
-        onStart: onStartSpy,
-        onComplete: onCompleteSpy,
-      }).data("plugin_counter");
+        onStart: function() { },
+        onComplete: function() { },
+      };
+      spyOn(options, "onStart");
+      spyOn(options, "onComplete");
+      counter = element.counter(options).data("plugin_counter");
       jQuery.fx.off = true;
     });
 
@@ -108,8 +108,8 @@ describe("Counter.js", function() {
 
     it("should prevent calls when already running", function(){
       jQuery.fx.off = false;
-      expect(onStartSpy).not.toHaveBeenCalled();
-      expect(onCompleteSpy).not.toHaveBeenCalled();
+      expect(options.onStart).not.toHaveBeenCalled();
+      expect(options.onComplete).not.toHaveBeenCalled();
       expect(counter.running).toBeUndefined();
 
       counter.start();
@@ -117,16 +117,16 @@ describe("Counter.js", function() {
       counter.start();
       counter.start();
 
-      expect(onStartSpy.callCount).toEqual(1);
-      expect(onCompleteSpy.callCount).toEqual(0);
+      expect(options.onStart.calls.count()).toEqual(1);
+      expect(options.onComplete.calls.count()).toEqual(0);
     });
 
     it("should trigger callbacks", function(){
-      expect(onStartSpy).not.toHaveBeenCalled();
-      expect(onCompleteSpy).not.toHaveBeenCalled();
+      expect(options.onStart).not.toHaveBeenCalled();
+      expect(options.onComplete).not.toHaveBeenCalled();
       counter.start();
-      expect(onStartSpy).toHaveBeenCalled();
-      expect(onCompleteSpy).toHaveBeenCalled();
+      expect(options.onStart).toHaveBeenCalled();
+      expect(options.onComplete).toHaveBeenCalled();
     });
   });
 

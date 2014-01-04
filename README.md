@@ -119,7 +119,7 @@ For development purposes I recommend using the watch feature on the
 
 ### Testing
 
-This project is tested with [Jasmine](http://pivotal.github.io/jasmine/).
+This project is tested with [Jasmine](http://jasmine.github.io/) 2.0.
 
 In the spec directory you can find all the tests for this project.
 The spec suite expects a compiled `counter.js` file to be available in the
