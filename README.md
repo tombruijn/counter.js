@@ -37,6 +37,7 @@ $("#counter").counter({
   duration: 5000,           // milliseconds, default: 1500
   countFrom: 10,            // start counting at this number, default: 0
   countTo: 30,              // count to this number, default: 0
+  runOnce: true,            // only run the counter once, default: false
   placeholder: "?",         // replace the number with this before counting,
                             // most useful with autoStart: false. default: undefined
   easing: "easeOutCubic",   // see http://gsgd.co.uk/sandbox/jquery/easing

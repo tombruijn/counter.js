@@ -92,7 +92,7 @@ describe("Counter.js", function() {
         countFrom: 0,
         countTo: 1000,
         onStart: function() { },
-        onComplete: function() { },
+        onComplete: function() { }
       };
       spyOn(options, "onStart");
       spyOn(options, "onComplete");
@@ -127,6 +127,39 @@ describe("Counter.js", function() {
       counter.start();
       expect(options.onStart).toHaveBeenCalled();
       expect(options.onComplete).toHaveBeenCalled();
+    });
+
+    describe("runOnce option = true", function(){
+      beforeEach(function() {
+        element = $("<div>0</div>");
+        options = {
+          autoStart: false,
+          duration: 0,
+          countFrom: 0,
+          countTo: 1000,
+          runOnce: true,
+          onStart: function() { },
+          onComplete: function() { }
+        };
+        spyOn(options, "onStart");
+        spyOn(options, "onComplete");
+        counter = element.counter(options).data("plugin_counter");
+        jQuery.fx.off = false;
+      });
+
+      it("should only run once", function(){
+        expect(options.onStart).not.toHaveBeenCalled();
+        expect(options.onComplete).not.toHaveBeenCalled();
+        expect(counter.running).toBeUndefined();
+
+        counter.start();
+        expect(options.onStart.calls.count()).toEqual(1);
+        expect(options.onComplete.calls.count()).toEqual(1);
+
+        counter.start();
+        expect(options.onStart.calls.count()).toEqual(1);
+        expect(options.onComplete.calls.count()).toEqual(1);
+      });
     });
   });
 

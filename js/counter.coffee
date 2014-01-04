@@ -21,6 +21,7 @@ https://github.com/tombruijn/counter.js/LICENSE
     # If the given element contains a value larger than countFrom it set on
     # countTo
     countTo: undefined # Defaults to 0 if not set
+    runOnce: false
     placeholder: undefined
     easing: "easeOutQuad"
     onStart: ->
@@ -56,9 +57,13 @@ https://github.com/tombruijn/counter.js/LICENSE
 
   # Starts the counter.
   # Will ignore any calls if it is already running.
+  # Will ignore any calls if runOnce is true and it has already run once.
   Counter::start = ->
+    return false if @options.runOnce && @runCount() >= 1
+
     unless @running
       @running = true
+      @updateRunCount()
       @options.onStart()
       self = @
       jQuery(count: @options.countFrom).animate(count: @options.countTo,
@@ -74,6 +79,14 @@ https://github.com/tombruijn/counter.js/LICENSE
           self.running = false
           self.options.onComplete()
       )
+
+  # Update the run count for the counter.
+  Counter::updateRunCount = ->
+    $(@element).data("counterRunCount", (@runCount() || 0) + 1)
+
+  # Return run count for counter.
+  Counter::runCount = ->
+    $(@element).data("counterRunCount")
 
   # Sets the given number in the element
   Counter::setNumber = (number) ->

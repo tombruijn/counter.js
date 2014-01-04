@@ -20,6 +20,7 @@ https://github.com/tombruijn/counter.js/LICENSE
       duration: 1500,
       countFrom: void 0,
       countTo: void 0,
+      runOnce: false,
       placeholder: void 0,
       easing: "easeOutQuad",
       onStart: function() {},
@@ -61,8 +62,12 @@ https://github.com/tombruijn/counter.js/LICENSE
     };
     Counter.prototype.start = function() {
       var self;
+      if (this.options.runOnce && this.runCount() >= 1) {
+        return false;
+      }
       if (!this.running) {
         this.running = true;
+        this.updateRunCount();
         this.options.onStart();
         self = this;
         return jQuery({
@@ -82,6 +87,12 @@ https://github.com/tombruijn/counter.js/LICENSE
           }
         });
       }
+    };
+    Counter.prototype.updateRunCount = function() {
+      return $(this.element).data("counterRunCount", (this.runCount() || 0) + 1);
+    };
+    Counter.prototype.runCount = function() {
+      return $(this.element).data("counterRunCount");
     };
     Counter.prototype.setNumber = function(number) {
       return this.element.innerHTML = Math.round(number);
