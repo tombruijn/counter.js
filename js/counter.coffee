@@ -13,7 +13,9 @@ https://github.com/tombruijn/counter.js/LICENSE
   pluginName = "counter"
   # Available options
   defaults =
-    autoStart: true
+    # Start counting automatically on plugin call.
+    autoStart: true # true/false
+    # Duration of the counter
     duration: 1500
     # If the given element contains a value larger than countTo it set on
     # countFrom
@@ -21,10 +23,16 @@ https://github.com/tombruijn/counter.js/LICENSE
     # If the given element contains a value larger than countFrom it set on
     # countTo
     countTo: undefined # Defaults to 0 if not set
-    runOnce: false
+    # Run the counter only once
+    runOnce: false # true/false
+    # Placeholder to use before the counter has started.
+    # Most useful with autoStart: false
     placeholder: undefined
+    # Easing used by jQuery.animate
     easing: "easeOutQuad"
+    # Callback called when the counter has started. No arguments.
     onStart: ->
+    # Callback called when the counter is completed. No arguments.
     onComplete: ->
     # Format the displayed number with this function.
     # The given value is the number counted to at every step.
