@@ -79,6 +79,21 @@ describe("Counter.js", function() {
         expect(element[0].innerHTML).toBe("?");
       });
     });
+
+    describe("numberFormatter", function(){
+      it("should set format on element", function(){
+        var element = $("<div>1</div>");
+        element.counter({
+          autoStart: true,
+          countTo: 10,
+          duration: 0,
+          numberFormatter: function(number){
+            return "$ " + number;
+          }
+        });
+        expect(element[0].innerHTML).toBe("$ 10");
+      });
+    });
   });
 
   describe("start()", function(){

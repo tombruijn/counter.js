@@ -24,7 +24,10 @@ https://github.com/tombruijn/counter.js/LICENSE
       placeholder: void 0,
       easing: "easeOutQuad",
       onStart: function() {},
-      onComplete: function() {}
+      onComplete: function() {},
+      numberFormatter: function(number) {
+        return Math.round(number);
+      }
     };
     Counter = (function() {
 
@@ -95,7 +98,7 @@ https://github.com/tombruijn/counter.js/LICENSE
       return $(this.element).data("counterRunCount");
     };
     Counter.prototype.setNumber = function(number) {
-      return this.element.innerHTML = Math.round(number);
+      return this.element.innerHTML = this.options.numberFormatter(number);
     };
     return $.fn.counter = function(options) {
       var self;

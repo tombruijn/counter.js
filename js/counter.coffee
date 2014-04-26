@@ -26,6 +26,11 @@ https://github.com/tombruijn/counter.js/LICENSE
     easing: "easeOutQuad"
     onStart: ->
     onComplete: ->
+    # Format the displayed number with this function.
+    # The given value is the number counted to at every step.
+    # Return the value you want to display.
+    numberFormatter: (number) ->
+      Math.round(number)
 
   class Counter
     constructor: (@element, options) ->
@@ -90,7 +95,7 @@ https://github.com/tombruijn/counter.js/LICENSE
 
   # Sets the given number in the element
   Counter::setNumber = (number) ->
-    @element.innerHTML = Math.round(number)
+    @element.innerHTML = @options.numberFormatter(number)
 
   # example usage:
   #
