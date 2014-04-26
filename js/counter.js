@@ -2,7 +2,7 @@
 Counter.js
 https://github.com/tombruijn/counter.js
 
-Version: 0.0.2
+Version: 0.0.3
 Copyright (c) 2014 Tom de Bruijn
 
 Counter.js is licensed under the MIT license.
