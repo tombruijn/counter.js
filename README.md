@@ -58,6 +58,15 @@ If either countFrom or countTo is not set it will try to determine which value
 you meant by its innerHTML of the element and the countFrom and countTo options.
 You can also not set an innerHTML value on the element and use both options.
 
+### `autoStart: false`
+
+When the `autoStart` option is set to false you have to start the counter using
+the `"start"` command on the element like so:
+
+```js
+$("#counter").counter("start");
+```
+
 ## Installation
 
 If you're just interested in just using the script then copy the
