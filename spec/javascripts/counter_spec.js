@@ -54,6 +54,42 @@ describe("Counter.js", function() {
       expect(options.easing).toBe("easeOutQuad");
     });
 
+    describe("data-count-from attribute", function(){
+      it("should load data-count-from attribute when set", function() {
+        var element = $("<div data-count-from='1'>");
+        element.counter({ countTo: 2 });
+        options = element.data("plugin_counter").options
+        expect(options.countFrom).toBe(1);
+        expect(options.countTo).toBe(2);
+      });
+
+      it("should not load data-count-from attribute when option given", function() {
+        var element = $("<div data-count-from='1'>");
+        element.counter({ countFrom: 0, countTo: 2 });
+        options = element.data("plugin_counter").options
+        expect(options.countFrom).toBe(0);
+        expect(options.countTo).toBe(2);
+      });
+    });
+
+    describe("data-count-to attribute", function(){
+      it("should load data-count-to attribute when set", function() {
+        var element = $("<div data-count-to='1'>");
+        element.counter({ countFrom: 0 });
+        options = element.data("plugin_counter").options
+        expect(options.countFrom).toBe(0);
+        expect(options.countTo).toBe(1);
+      });
+
+      it("should not load data-count-from attribute when option given", function() {
+        var element = $("<div data-count-to='1'>");
+        element.counter({ countFrom: 0, countTo: 2 });
+        options = element.data("plugin_counter").options
+        expect(options.countFrom).toBe(0);
+        expect(options.countTo).toBe(2);
+      });
+    });
+
     describe("element value", function(){
       it("should use the element value for countTo if larger than countFrom", function(){
         var element = $("<div>1</div>");

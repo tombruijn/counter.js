@@ -101,8 +101,18 @@ https://github.com/tombruijn/counter.js/LICENSE
       return this.element.innerHTML = this.options.numberFormatter(number);
     };
     return $.fn.counter = function(options) {
-      var self;
+      var countFromAttr, countToAttr, self;
       self = this;
+      countToAttr = parseFloat($(this).attr("data-count-to"));
+      countFromAttr = parseFloat($(this).attr("data-count-from"));
+      if (typeof options !== "string") {
+        if (!(options.countTo != null) && countToAttr) {
+          options.countTo = countToAttr;
+        }
+        if (!(options.countFrom != null) && countFromAttr) {
+          options.countFrom = countFromAttr;
+        }
+      }
       return this.each(function() {
         var plugin;
         if (plugin = $(this).data("plugin_" + pluginName)) {

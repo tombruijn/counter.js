@@ -115,6 +115,13 @@ https://github.com/tombruijn/counter.js/LICENSE
   #   starts the counter
   $.fn.counter = (options) ->
     self = @
+
+    countToAttr = parseFloat($(@).attr("data-count-to"))
+    countFromAttr = parseFloat($(@).attr("data-count-from"))
+    unless typeof options == "string"
+      options.countTo = countToAttr if !options.countTo? && countToAttr
+      options.countFrom = countFromAttr if !options.countFrom? && countFromAttr
+
     @each ->
       if plugin = $(@).data("plugin_#{pluginName}")
         if typeof options == "string"

@@ -67,6 +67,25 @@ the `"start"` command on the element like so:
 $("#counter").counter("start");
 ```
 
+### `data-count-from` and `data-count-to` attributes
+
+You can set the `countFrom` and `countTo` options with a data attribute on the
+element instead of an option as well. However, when the option is given in
+JavaScript that option is used instead.
+
+```html
+<div data-count-from="1"></div>
+```
+
+```js
+$("#counter").counter();
+# countFrom is now: 1
+
+# When given as an option:
+$("#counter").counter({ countFrom: 2 });
+# countFrom is now: 2
+```
+
 ## Installation
 
 If you're just interested in just using the script then copy the
