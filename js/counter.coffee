@@ -47,7 +47,7 @@ https://github.com/tombruijn/counter.js/LICENSE
 
   # Sets internal variables and sets placeholder.
   Counter::init = ->
-    givenNumber = parseInt(@element.innerHTML)
+    givenNumber = parseFloat(@element.innerHTML)
 
     # Use number set in the HTML
     if givenNumber? && !isNaN(givenNumber)

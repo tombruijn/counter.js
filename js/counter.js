@@ -42,7 +42,7 @@ https://github.com/tombruijn/counter.js/LICENSE
     })();
     Counter.prototype.init = function() {
       var givenNumber;
-      givenNumber = parseInt(this.element.innerHTML);
+      givenNumber = parseFloat(this.element.innerHTML);
       if ((givenNumber != null) && !isNaN(givenNumber)) {
         if (this.options.countFrom < givenNumber) {
           this.options.countTo = givenNumber;

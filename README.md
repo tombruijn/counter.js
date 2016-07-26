@@ -126,6 +126,10 @@ Use the bundled `Makefile` to compile and minify the original coffeescript file.
 It's as simple as running `make` inside the project's directory.
 Do make sure that all the required Node.js packages are installed.
 
+```
+make
+```
+
 For development purposes I recommend using the watch feature on the
 `coffee-script` package so it will compile on every file change.
 
